@@ -1,7 +1,16 @@
 " Vim compiler file
-" Compiler:     Perl syntax checks (perl -Wc) v1.0
+" Compiler:     Perl syntax checks (perl -Wc) v1.1
 " Maintainer:   Lukas Zapletal <Lukas.Zapletal@seznam.cz>
 " Last Change:  2001 Sep 10
+
+" Changelog:
+"
+" 1.1: fixed ' near "..." '
+" 1.0: initial version
+" 
+
+" Todo:
+" Include ' near "..." ' in the error message
 
 if exists("current_compiler")
   finish
@@ -16,6 +25,8 @@ endif
 
 setlocal makeprg=perl\ -Wc\ %
 
-" sample error:   Useless use of a constanst at test.pl line 5.
-setlocal errorformat=%m\ at\ %f\ line\ %l.,
+" Sample errors:
+" Type of arg 1 to push must be array (not hash element) at NFrame.pm line 129, near ");"
+" Useless use of a constanst at test.pl line 5.
+setlocal errorformat=%m\ at\ %f\ line\ %l%.%#,
                     \%-G%.%# " ignore any lines that didn't match one of the patterns above
