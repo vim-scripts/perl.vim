@@ -1,0 +1,7 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=56
+
+This is compiler script that runs perl -Wc and parses all error and warnings. For more information how to use compilers in VIM read help.
+
+This version has workaround with redirecting stderr on windows platform so it can run either on unixes or windows.
+
+Enjoy. Lukas
